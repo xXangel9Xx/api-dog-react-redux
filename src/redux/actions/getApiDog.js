@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { 
-    fetch_user_request ,
-    fetch_users_failure,
-    fetch_user_succes 
+    fetch_dogs_request ,
+    fetch_dogs_failure,
+    fetch_dogs_succes 
     } from '../reducers/userTypes';
 export const type = "getApiDog"
 
@@ -21,19 +21,19 @@ export const getIndex = () =>{
 
 export const fetchDogsRequest = () =>{
     return {
-        type:fetch_user_request 
+        type:fetch_dogs_request 
     }
 }
 
 export const fetchDogsSucces = (users) =>{
     return {
-        type:fetch_user_succes,
+        type:fetch_dogs_succes,
         payload:users
     }
 }
-export const fetchDogsFailure = () =>{
+export const fetchDogsFailure = (error) =>{
     return {
-        type: fetch_users_failure,
+        type: fetch_dogs_failure,
         payload:error
     }
 }

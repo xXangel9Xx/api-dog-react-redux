@@ -13,3 +13,5 @@ const store = createStore(
     reducer,
     composeWithDevTools( applyMiddleware(logger ,thunk) )
 );
+
+export default store
