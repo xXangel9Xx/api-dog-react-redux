@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import {BrowserRouter, Route, Redirect,Switch} from 'react-router-dom';
 import Index from './pages/index/index'
 function App() {
