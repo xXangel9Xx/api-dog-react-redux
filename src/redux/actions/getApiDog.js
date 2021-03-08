@@ -6,10 +6,10 @@ import {
     } from '../reducers/userTypes';
 export const type = "getApiDog"
 
-export const getIndex = async () =>{
+export const getIndex =  () =>{
     return (dispatch) =>{
         dispatch(fetchDogsRequest())
-        await axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get('https://jsonplaceholder.typicode.com/users')
         .then(response=>{
             const users = response.data
             dispatch(fetchDogsSucces(users))
