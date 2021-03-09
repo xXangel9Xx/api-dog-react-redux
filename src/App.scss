@@ -1,7 +1,10 @@
 @media screen and (min-width:300px){
-  
+  * {
+    margin: 0;
+    padding: 0;
+  }
 }
-.App {
+/*.App {
   text-align: center;
 }
 
@@ -39,3 +42,4 @@
     transform: rotate(360deg);
   }
 }
+*/

@@ -1,0 +1,17 @@
+@media screen and (min-width:300px){
+    .fa-paw{
+        color: white;
+        font-size: 30px;
+    }
+    .container-input{
+        display: flex;
+        margin-top: 18px;
+        padding-bottom: 4px;
+        background-color: black;
+    }
+    .container-input, .input{
+        border-radius: 20px;
+        height: 18px;
+    }
+
+}

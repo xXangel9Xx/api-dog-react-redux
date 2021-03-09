@@ -1,18 +1,19 @@
 import React,{useEffect} from 'react';
-import { connect } from 'react-redux';
-import { getIndex } from '../../redux/actions/getApiDog'
+import BarNav from '../../components/barNav/barNav'
+//import { connect } from 'react-redux';
+//import { getIndex } from '../../redux/actions/getApiDog'
 const Index = (props) => {
-    useEffect(()=>{
+  /*  useEffect(()=>{
         props.getIndex()
-    },[])
+    },[])*/
     return(
         <div className="container-page-index">
-            <p>Api Dogs</p>
+            <BarNav />
         </div>
     )
 }
 // Además del state, `connect` agregar `dispatch` en nuestros props.
-const MapStateToProps = (state)=>{
+/*const MapStateToProps = (state)=>{
     return{
         getApiDog: state.getApiDog
     }
@@ -23,5 +24,7 @@ const MapDispachToProps = (dispatch) => {
         getIndex: () => dispatch(getIndex())
     }
 }
+connect(MapStateToProps,MapDispachToProps)()
+*/
+export default Index
 
-export default connect(MapStateToProps,MapDispachToProps)(Index)
