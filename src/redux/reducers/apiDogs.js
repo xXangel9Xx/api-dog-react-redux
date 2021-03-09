@@ -1,35 +1,33 @@
-import { type as getApiDog } from '../actions/getApiDog';
+//import { type as getApiDog } from '../actions/getApiDog';
 import {
     fetch_dogs_request,
     fetch_dogs_succes,
     fetch_dogs_failure} from './userTypes';
 const defaultState = {
     loading:false,
-    users:[],
+    dogs:[],
     error:''
 };
 const reducer = ( state = defaultState, {type,payload}) => {
-    switch(getApiDog){
-        case fetch_dogs_request:{
+    switch(type){
+        case fetch_dogs_request:
+            console.log(type)
             return{
                 ...state,
                 loading:true
             }
-        }
-        case fetch_dogs_succes:{
+        case fetch_dogs_succes:
             return{
+                ...state,
                 loading:false,
-                users:payload,
-                error:''
+                dogs:payload
             }
-        }
-        case fetch_dogs_failure:{
+        case fetch_dogs_failure:
             return{
                 loading:false,
-                users:[],
+                dogs:[],
                 error:payload
             }
-        }
         default: return state
     }
 }
