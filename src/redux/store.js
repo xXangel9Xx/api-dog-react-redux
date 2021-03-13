@@ -4,7 +4,7 @@ esto funciona para monitorear los estados de redux en consola
 del navegador*/
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
-import getApiDog from './reducers/apiDogs';
+import getApiDog from './reducers/apiDog/apiDogs';
 const reducer = combineReducers({
     getApiDog
 })

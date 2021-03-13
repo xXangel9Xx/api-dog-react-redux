@@ -2,7 +2,7 @@
 import {
     fetch_dogs_request,
     fetch_dogs_succes,
-    fetch_dogs_failure} from './userTypes';
+    fetch_dogs_failure} from './types';
 const defaultState = {
     loading:false,
     dogs:[],
@@ -11,7 +11,6 @@ const defaultState = {
 const reducer = ( state = defaultState, {type,payload}) => {
     switch(type){
         case fetch_dogs_request:
-            console.log(type)
             return{
                 ...state,
                 loading:true

@@ -3,7 +3,7 @@ import {
     fetch_dogs_request ,
     fetch_dogs_failure,
     fetch_dogs_succes 
-    } from '../reducers/userTypes';
+    } from '../reducers/apiDog/types';
 //export const type = "getApiDog"
 export const fetchDogsRequest = () =>{
     return {
