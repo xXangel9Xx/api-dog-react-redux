@@ -5,8 +5,10 @@ del navegador*/
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import getApiDog from './reducers/apiDog/apiDogs';
+import searchBreeds from './reducers/suggestions/suggestionsReducer';
 const reducer = combineReducers({
-    getApiDog
+    getApiDog,
+    searchBreeds
 })
 
 const store = createStore(
