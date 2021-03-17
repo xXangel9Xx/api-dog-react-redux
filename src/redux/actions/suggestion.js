@@ -1,9 +1,17 @@
-import { search_suggestions } from '../reducers/suggestions/types';
+import { search_suggestions,reset_suggestions } from '../reducers/suggestions/types';
 
-const suggestionsSearch = (suggestions) => {
+export const suggestionsSearch = (suggestions) => {
     return{
         type: search_suggestions,
         payload:suggestions
     }
 }
-export default suggestionsSearch
+
+
+
+export const resetSuggestions = (payload) => {
+    return{
+        type:reset_suggestions,
+        payload:payload
+    }
+}

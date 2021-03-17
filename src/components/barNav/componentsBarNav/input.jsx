@@ -1,5 +1,5 @@
 import React from 'react';
-import suggestionsSearch from '../../../redux/actions/suggestion';
+import {suggestionsSearch} from '../../../redux/actions/suggestion';
 import { connect } from 'react-redux';
 import Search from '../../../assets/search.png'
 import './input.scss'
