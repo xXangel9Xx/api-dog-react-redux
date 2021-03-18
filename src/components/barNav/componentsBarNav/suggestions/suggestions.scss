@@ -1,0 +1,16 @@
+@media screen and (min-width:300px){
+    .container-suggestions{
+        width: 180px;
+        overflow-x: hidden;
+        margin-top: 25px;
+    }
+    .suggestions-scroll{
+        overflow-y: scroll;
+        height: 150px;
+        width: 200px;
+    }
+    #suggestion:hover{
+        background-color: black;
+        color:white;
+    }
+}
