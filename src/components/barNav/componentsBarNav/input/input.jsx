@@ -1,5 +1,5 @@
 import React from 'react';
-import {suggestionsSearch} from '../../../../redux/actions/suggestion';
+import {suggestionsSearch, resetSuggestions} from '../../../../redux/actions/suggestion';
 import { connect } from 'react-redux';
 import Search from '../../../../assets/search.png'
 import './input.scss'
@@ -14,7 +14,8 @@ const Input = (props) => {
                 </button>
                 <input type="text" className="input"
                     onChange={(e)=>searchFindSuggestions(e)}
-                    onClick={(e)=>searchFindSuggestions(e)}
+                    onFocus={(e)=>searchFindSuggestions(e)}
+                    onBlur={(e)=>props.resetSuggestions()}
                 />
 
             </form>
@@ -28,7 +29,9 @@ const mapStateToProps = (state)=>{
     }
 }
 const mapDispatchToProps = {
-    suggestionsSearch
+    suggestionsSearch,
+    resetSuggestions
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Input)
-// onClick={(e)=>functResults(e)}
+// onFocus => cuando esta encima del input
+// onFocusOut => onBlur => cuando el click sale del input
