@@ -1,4 +1,5 @@
 import React,{useEffect} from 'react';
+import './index.scss'
 import BarNav from '../../components/barNav/barNav'
 import { connect } from 'react-redux';
 import { getDog } from '../../redux/actions/getApiDog'
@@ -11,7 +12,20 @@ const Index = (props) => {
     return(
         <div className="container-page-index">
             <BarNav />
-            {props.dogs.loading == false?<Letters />:<p>loading</p>
+            {props.dogsState.loading == false?
+            
+                <div className="container-body">
+                    {props.dogsState.dogs.message.map((resDogs,i)=> 
+                        <Letters
+                            key={i}
+                            dogs={resDogs}
+                        />   
+                        
+                    )}
+                  
+                </div>
+
+            :<p>loading</p>
             }
         </div>
     )
@@ -19,13 +33,13 @@ const Index = (props) => {
 // Además del state, `connect` agregar `dispatch` en nuestros props.https://dog.ceo/api/breed/germanshepherd/images
 const MapStateToProps = (state)=>{
     return{
-        dogs: state.dogs
+        dogsState: state.dogs
     }
 }
 
 const MapDispachToProps = (dispatch) => {
     return {
-        getDog: () => dispatch(getDog('https://dog.ceo/api/breed/germanshepherd/images/random/10'))
+        getDog: () => dispatch(getDog('https://dog.ceo/api/breed/germanshepherd/images/random/30'))
     }
 }
 

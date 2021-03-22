@@ -4,7 +4,7 @@ import {
     fetch_dogs_succes,
     fetch_dogs_failure} from './types';
 const defaultState = {
-    loading:false,
+    loading:true,
     dogs:[],
     error:''
 };
