@@ -23,10 +23,10 @@ export const fetchDogsFailure = (error) =>{
         payload:error
     }
 }
-export const getIndex =  () =>{
+export const getDog =  (url) =>{
     return (dispatch) =>{
         dispatch(fetchDogsRequest())
-        axios.get('https://dog.ceo/api/breeds/image/random')
+        axios.get(url)
         .then(response=>{
             const dogs = response.data
             dispatch(fetchDogsSucces(dogs))
@@ -35,3 +35,5 @@ export const getIndex =  () =>{
         })
     }
 }
+//https://dog.ceo/api/breeds/image/random
+//https://dog.ceo/api/breed/hound/ afghan /images

@@ -4,10 +4,10 @@ esto funciona para monitorear los estados de redux en consola
 del navegador*/
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
-import getApiDog from './reducers/apiDog/apiDogs';
+import dogs from './reducers/apiDog/apiDogs';
 import searchBreeds from './reducers/suggestions/suggestionsReducer';
 const reducer = combineReducers({
-    getApiDog,
+    dogs,
     searchBreeds
 })
 

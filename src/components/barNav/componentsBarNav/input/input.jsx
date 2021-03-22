@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {suggestionsSearch, resetSuggestions} from '../../../../redux/actions/suggestion';
 import SuggestionsJsx from '../suggestions/suggestions';
+import { getDog } from '../../../../redux/actions/getApiDog'
 import { connect } from 'react-redux';
 import Search from '../../../../assets/search.png'
 import './input.scss'
@@ -24,17 +25,22 @@ const Input = (props) => {
         },number)
 
     }
+    function getDog(e){
+        e.preventDefault()
+        let getBreeds = document.getElementById('input-search-breeds').value
+        getBreeds = getBreeds.toLowerCase()
+    }
     useEffect(()=>{
         ocultSuggestionContainer(0)
     },[])
-
+    
     
     return (
         <div className="container-input">
             <i className="fas fa-paw"></i>
             <div className="container-form">
                 <form className="form">
-                    <button type="submit" className="button">
+                    <button type="submit" className="button" onClick={(e)=>getDog(e)}>
                         <img src={Search} alt="" className="image-search"/>
                     </button>
                     <input type="text" className="input"
@@ -57,9 +63,13 @@ const mapStateToProps = (state)=>{
         searchBreeds: state.searchBreeds
     }
 }
-const mapDispatchToProps = {
-    suggestionsSearch,
-    resetSuggestions
+const mapDispatchToProps = (dispatch) =>{
+    return{
+            suggestionsSearch,
+            resetSuggestions,
+            //getDog:()=>dispatch(getDog())
+    }
+
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Input)
 // onFocus => cuando esta encima del input
