@@ -15,7 +15,7 @@ const Index = (props) => {
             {props.dogsState.loading == false?
             
                 <div className="container-body">
-                    {props.dogsState.dogs.message.map((resDogs,i)=> 
+                    {props.dogsState.dogs.message && props.dogsState.dogs.message.map((resDogs,i)=> 
                         <Letters
                             key={i}
                             dogs={resDogs}

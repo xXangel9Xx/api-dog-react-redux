@@ -7,13 +7,18 @@ import Search from '../../../../assets/search.png'
 import './input.scss'
 
 const Input = (props) => {
-    function searchFindSuggestions(e){props.suggestionsSearch(e.target.value)}
-    function initalDisplaySuggestions(){
+    useEffect(()=>{
+    },[props.searchBreeds])
+    function searchFindSuggestions(e){
+        props.suggestionsSearch(e.target.value)
+    }
+
+    function initalDisplaySuggestions(e){
         let suggestion = document.getElementById('suggestions')
         let suggestionScroll = document.getElementById('suggestions-scroll')
         suggestion.style.display = "block"
         suggestionScroll.style.display="block"
-
+        props.suggestionsSearch(e.target.value)
     }
     function ocultSuggestionContainer(number){
         setTimeout(()=>{
@@ -25,10 +30,11 @@ const Input = (props) => {
         },number)
 
     }
-    function getDog(e){
+    function search(e){
         e.preventDefault()
         let getBreeds = document.getElementById('input-search-breeds').value
         getBreeds = getBreeds.toLowerCase()
+        props.dispatch(props.getDog(`https://dog.ceo/api/breed/${getBreeds}/images/random/10`))
     }
     useEffect(()=>{
         ocultSuggestionContainer(0)
@@ -40,13 +46,13 @@ const Input = (props) => {
             <i className="fas fa-paw"></i>
             <div className="container-form">
                 <form className="form">
-                    <button type="submit" className="button" onClick={(e)=>getDog(e)}>
+                    <button type="submit" className="button" onClick={(e)=>search(e)}>
                         <img src={Search} alt="" className="image-search"/>
                     </button>
                     <input type="text" className="input"
                         id="input-search-breeds"
                         onChange={(e)=>searchFindSuggestions(e)}
-                        onFocus={(e)=>initalDisplaySuggestions()}
+                        onFocus={(e)=>initalDisplaySuggestions(e)}
                         onBlur={(e)=>ocultSuggestionContainer(150)}
                     />
                 </form>
@@ -65,12 +71,13 @@ const mapStateToProps = (state)=>{
 }
 const mapDispatchToProps = (dispatch) =>{
     return{
-            suggestionsSearch,
-            resetSuggestions,
-            //getDog:()=>dispatch(getDog())
+            suggestionsSearch:(e)=>dispatch(suggestionsSearch(e)),
+            resetSuggestions:(e)=>dispatch(resetSuggestions(e)),
+            getDog,
+            dispatch
     }
-
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Input)
 // onFocus => cuando esta encima del input
+
 // onFocusOut => onBlur => cuando el click sale del input
