@@ -3,6 +3,7 @@ import './index.scss'
 import BarNav from '../../components/barNav/barNav'
 import { connect } from 'react-redux';
 import { getDog } from '../../redux/actions/getApiDog'
+import Loading from '../../assets/509258_fb107.gif'
 import Letters from '../../components/letters/letters';
 const Index = (props) => {
     useEffect(()=>{
@@ -13,7 +14,6 @@ const Index = (props) => {
         <div className="container-page-index">
             <BarNav />
             {props.dogsState.loading == false?
-            
                 <div className="container-body">
                     {props.dogsState.dogs.message && props.dogsState.dogs.message.map((resDogs,i)=> 
                         <Letters
@@ -22,10 +22,10 @@ const Index = (props) => {
                         />   
                         
                     )}
-                  
                 </div>
-
-            :<p>loading</p>
+            :   <div className="container-body">
+                    <img src={Loading} alt="" className="image-loading"/>
+                </div>
             }
         </div>
     )
@@ -45,4 +45,5 @@ const MapDispachToProps = (dispatch) => {
 
 
 export default connect(MapStateToProps,MapDispachToProps)(Index)
-
+/*
+            */
